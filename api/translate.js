@@ -36,6 +36,7 @@ export default async function handler(request, response) {
   const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
 
   try {
+    console.log('Iniciando chamada Gemini API...');
     const geminiResponse = await fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -50,7 +51,7 @@ export default async function handler(request, response) {
 
     if (!geminiResponse.ok) {
       const errorData = await geminiResponse.json();
-      console.error('Gemini API Error:', errorData);
+      console.error('Erro na SDK Gemini:', JSON.stringify(errorData));
       return response.status(geminiResponse.status).json({ 
         error: 'Error from Gemini API',
         details: errorData 
@@ -58,11 +59,12 @@ export default async function handler(request, response) {
     }
 
     const data = await geminiResponse.json();
+    console.log('Sucesso na resposta da Gemini API');
     const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
     return response.status(200).json({ text: resultText });
   } catch (error) {
-    console.error('Server Error:', error);
-    return response.status(500).json({ error: 'Internal server error' });
+    console.error('Erro Crítico no Servidor:', error.message);
+    return response.status(500).json({ error: 'Internal server error', message: error.message });
   }
 }
