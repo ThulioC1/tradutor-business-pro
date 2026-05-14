@@ -12,43 +12,41 @@ const STYLE_CONFIGS = {
   ti: {
     emoji: "🖥️",
     nome: "Portal de Chamados (TI)",
-    instrucao: `Você é um analista de suporte técnico sênior. Sua tarefa é REESCREVER COMPLETAMENTE o texto informal para o formato de um chamado de TI extremamente formal.
+    instrucao: `Sua tarefa é TRANSFORMAR o texto informal em uma descrição técnica e extremamente formal para um portal de suporte.
 Regras:
-- Transforme reclamações em "incidentes operacionais" e falhas em "indisponibilidade de ambiente".
-- Use terminologia técnica: "SLA", "Root Cause Analysis", "Provisionamento", "Escalonamento N2".
-- Remova qualquer emoção, gíria ou subjetividade.
-- Formate rigorosamente como um log de sistema: "Incidente:", "Impacto:", "Resolução solicitada:".
+- Não use tópicos ou cabeçalhos. Escreva um parágrafo fluído.
+- Substitua linguagens vagas por termos como "anomalia sistêmica", "déficit de proficiência técnica", "gargalo operacional" ou "manutenção corretiva".
+- O tom deve ser seco, técnico e focado em causas e soluções.
 - Gere EXATAMENTE 2 versões diferentes separadas por [OPCAO_1] e [OPCAO_2]`
   },
   linkedin: {
     emoji: "💼",
     nome: "LinkedIn Motivacional",
-    instrucao: `Você é um Top Voice do LinkedIn. Sua tarefa é TRANSFORMAR o texto do usuário em um post altamente inspirador e motivacional.
+    instrucao: `Sua tarefa é TRANSFORMAR o texto informal em uma postagem narrativa e inspiradora do LinkedIn.
 Regras:
-- Comece obrigatoriamente com "Estou muito feliz em compartilhar..." ou "Hoje tive um insight poderoso...".
-- Converta qualquer erro ou falha em "aprendizado estratégico" e "resiliência".
-- Use emojis estrategicamente 🚀✨💡🙌.
-- Termine com uma pergunta para gerar engajamento.
+- Escreva um parágrafo que emocione e gere engajamento.
+- Use a "jornada do erro" como uma ponte para o sucesso e aprendizado.
+- Use alguns emojis e termine com uma pergunta reflexiva.
 - Gere EXATAMENTE 2 versões diferentes separadas por [OPCAO_1] e [OPCAO_2]`
   },
   juridico: {
     emoji: "⚖️",
     nome: "Juridiquês",
-    instrucao: `Você é um jurista clássico. Sua tarefa é REESCREVER o texto do usuário em linguagem jurídica arcaica e rebuscada.
+    instrucao: `Sua tarefa é REESCREVER o texto informal em linguagem jurídica formal e parágrafos densos.
 Regras:
-- Utilize termos em latim: "Ad cautelam", "Data venia", "Pacta sunt servanda".
-- Use um vocabulário denso: "outrossim", "doravante", "hodiernamente", "interregno".
-- Transforme situações cotidianas em questões de "conformidade legal" e "segurança jurídica".
+- Evite listas. Use conectivos sofisticados como "conseguinte", "imperioso salientar", "no que tange".
+- Use expressões latinas apenas quando natural no texto jurídico.
+- O resultado deve parecer um trecho de um parecer ou petição.
 - Gere EXATAMENTE 2 versões diferentes separadas por [OPCAO_1] e [OPCAO_2]`
   },
   corporativo: {
     emoji: "🏢",
     nome: "Corporativo Padrão",
-    instrucao: `Você é um executivo de uma multinacional. Sua tarefa é REESCREVER o texto do usuário em jargão corporativo polido e vago.
+    instrucao: `Sua tarefa é REESCREVER o texto informal em jargão executivo de alto nível.
 Regras:
-- Use termos como "synergy", "stakeholders", "brainstorming", "alinhamento estratégico", "roadmap".
-- Transforme problemas diretos em "desafios de otimização" ou "oportunidades de alinhamento".
-- O tom deve ser neutro, passivo e extremamente educado.
+- Use frases polidas que suavizem o problema original usando "business talk".
+- Termos: "compliance", "core business", "framework", "deliverables", "stakeholders".
+- O tom deve ser diplomático e estratégico.
 - Gere EXATAMENTE 2 versões diferentes separadas por [OPCAO_1] e [OPCAO_2]`
   }
 };
