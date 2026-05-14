@@ -36,6 +36,10 @@ export default async function handler(request, response) {
   const URL = "https://api.groq.com/openai/v1/chat/completions";
 
   try {
+    const systemPrompt = `Você é um tradutor sênior especializado em adaptacão de tons corporativos. 
+Sua missão é TRANSFORMAR frases informais em versões profissionais, seguindo estritamente as regras de estilo fornecidas.
+Não apenas repita o que o usuário disse; mude o vocabulário, a estrutura e a formalidade conforme solicitado.`;
+
     console.log(`Iniciando chamada Groq API (Modelo: ${MODEL})...`);
     const groqResponse = await fetch(URL, {
       method: "POST",
@@ -45,8 +49,11 @@ export default async function handler(request, response) {
       },
       body: JSON.stringify({
         model: MODEL,
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.7,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: prompt }
+        ],
+        temperature: 0.8,
         max_tokens: 1024
       })
     });
