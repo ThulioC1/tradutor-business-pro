@@ -32,11 +32,11 @@ export default async function handler(request, response) {
     return response.status(500).json({ error: 'Gemini API key not configured on server' });
   }
 
-  const MODEL = "gemini-1.5-flash";
+  const MODEL = "gemini-pro";
   const URL = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`;
 
   try {
-    console.log('Iniciando chamada Gemini API...');
+    console.log(`Chamando URL: https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=...`);
     const geminiResponse = await fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
