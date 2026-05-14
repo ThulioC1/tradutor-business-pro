@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tradutor Business Pro | Da Vida Real para o Papel</title>
+  <meta name="description" content="Traduza suas frases do mundo real para Juridiquês, Corporativo, LinkedIn e Portal de TI. O app de tradução mais (des)necessário do mercado." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>" />
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ─── Header ──────────────────────────────────────────── -->
+  <header>
+    <div class="logo">
+      <span class="logo-emoji">🌐</span>
+      Tradutor Business Pro
+    </div>
+    <p class="tagline">
+      "Porque 'o servidor caiu' não soa bem em nenhuma reunião."
+    </p>
+  </header>
+
+  <!-- ─── App Principal ────────────────────────────────────── -->
+  <main id="app-panel">
+
+    <!-- Campo de texto principal -->
+    <div class="input-section">
+      <div class="input-label">
+        <span>✍️ O que aconteceu de verdade?</span>
+        <span class="char-count" id="char-count">0/500</span>
+      </div>
+      <textarea
+        id="input-text"
+        placeholder='Ex: "o servidor caiu no meio do expediente e perdi tudo que não salvei"'
+        rows="4"
+      ></textarea>
+      <div class="input-actions">
+        <button id="clear-btn" class="btn-clear">✕ Limpar</button>
+      </div>
+    </div>
+
+    <!-- Botões de estilo -->
+    <p class="style-buttons-label">Escolha o idioma corporativo:</p>
+    <div class="style-buttons">
+      <button class="style-btn" id="btn-ti" data-style="ti">
+        <span class="btn-emoji">🖥️</span>
+        Portal de Chamados (TI)
+      </button>
+      <button class="style-btn" id="btn-linkedin" data-style="linkedin">
+        <span class="btn-emoji">💼</span>
+        LinkedIn Motivacional
+      </button>
+      <button class="style-btn" id="btn-juridico" data-style="juridico">
+        <span class="btn-emoji">⚖️</span>
+        Juridiquês
+      </button>
+      <button class="style-btn" id="btn-corporativo" data-style="corporativo">
+        <span class="btn-emoji">🏢</span>
+        Corporativo Padrão
+      </button>
+    </div>
+
+    <!-- Resultados das traduções -->
+    <div id="results-grid"></div>
+
+    <!-- Histórico -->
+    <div class="history-section">
+      <h2 class="section-title">🕐 Suas últimas traduções</h2>
+      <p class="history-empty hidden" id="history-empty">
+        Nenhuma tradução ainda. Experimente acima! 👆
+      </p>
+      <ul id="history-list"></ul>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Tradutor Business Pro © 2025 — Feito com ironia e muito <em>alinhamento estratégico</em> ☕</p>
+</footer>
+
+<!-- Toast de notificação -->
+<div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+<!-- Scripts ES Modules -->
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
