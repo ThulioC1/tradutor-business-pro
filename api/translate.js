@@ -32,11 +32,11 @@ export default async function handler(request, response) {
     return response.status(500).json({ error: 'Groq API key not configured on server' });
   }
 
-  const MODEL = "llama3-8b-8192";
+  const MODEL = "llama-3.1-8b-instant";
   const URL = "https://api.groq.com/openai/v1/chat/completions";
 
   try {
-    console.log('Iniciando chamada Groq API...');
+    console.log(`Iniciando chamada Groq API (Modelo: ${MODEL})...`);
     const groqResponse = await fetch(URL, {
       method: "POST",
       headers: { 
@@ -53,9 +53,10 @@ export default async function handler(request, response) {
 
     if (!groqResponse.ok) {
       const errorData = await groqResponse.json();
+      const errorMsg = errorData.error?.message || 'Error from Groq API';
       console.error('Erro na SDK Groq:', JSON.stringify(errorData));
       return response.status(groqResponse.status).json({ 
-        error: 'Error from Groq API',
+        error: errorMsg,
         details: errorData 
       });
     }
