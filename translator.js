@@ -12,11 +12,12 @@ const STYLE_CONFIGS = {
   ti: {
     emoji: "🖥️",
     nome: "Portal de Chamados (TI)",
-    instrucao: `Sua tarefa é TRANSFORMAR o texto informal em uma descrição técnica e extremamente formal para um portal de suporte.
+    instrucao: `Sua tarefa é TRANSFORMAR o texto informal em uma descrição técnica polida para um portal de suporte corporativo.
 Regras:
-- Não use tópicos ou cabeçalhos. Escreva um parágrafo fluído.
-- Substitua linguagens vagas por termos como "anomalia sistêmica", "déficit de proficiência técnica", "gargalo operacional" ou "manutenção corretiva".
-- O tom deve ser seco, técnico e focado em causas e soluções.
+- Use termos como "suporte para interpretação de configurações", "desbloqueio de fluxo de trabalho" e "alinhamento de processos técnicos".
+- Transforme erros de usuário em "necessidades de suporte consultivo" ou "ajustes de configuração assistida".
+- O tom deve ser profissional, neutro e focado em produtividade.
+- Evite formatos de formulário; escreva uma frase ou parágrafo fluído.
 - Gere EXATAMENTE 2 versões diferentes separadas por [OPCAO_1] e [OPCAO_2]`
   },
   linkedin: {
