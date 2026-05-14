@@ -33,7 +33,7 @@ export default async function handler(request, response) {
   }
 
   const MODEL = "gemini-1.5-flash";
-  const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+  const URL = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`;
 
   try {
     console.log('Iniciando chamada Gemini API...');
