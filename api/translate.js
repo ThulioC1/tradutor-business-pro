@@ -26,41 +26,43 @@ export default async function handler(request, response) {
     return response.status(400).json({ error: 'Prompt is required' });
   }
 
-  const API_KEY = process.env.GEMINI_API_KEY;
+  const API_KEY = process.env.GROQ_API_KEY;
 
   if (!API_KEY) {
-    return response.status(500).json({ error: 'Gemini API key not configured on server' });
+    return response.status(500).json({ error: 'Groq API key not configured on server' });
   }
 
-  const MODEL = "gemini-pro";
-  const URL = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`;
+  const MODEL = "llama3-8b-8192";
+  const URL = "https://api.groq.com/openai/v1/chat/completions";
 
   try {
-    console.log(`Chamando URL: https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=...`);
-    const geminiResponse = await fetch(URL, {
+    console.log('Iniciando chamada Groq API...');
+    const groqResponse = await fetch(URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": "application/json" 
+      },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.9,
-          maxOutputTokens: 1024
-        }
+        model: MODEL,
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.7,
+        max_tokens: 1024
       })
     });
 
-    if (!geminiResponse.ok) {
-      const errorData = await geminiResponse.json();
-      console.error('Erro na SDK Gemini:', JSON.stringify(errorData));
-      return response.status(geminiResponse.status).json({ 
-        error: 'Error from Gemini API',
+    if (!groqResponse.ok) {
+      const errorData = await groqResponse.json();
+      console.error('Erro na SDK Groq:', JSON.stringify(errorData));
+      return response.status(groqResponse.status).json({ 
+        error: 'Error from Groq API',
         details: errorData 
       });
     }
 
-    const data = await geminiResponse.json();
-    console.log('Sucesso na resposta da Gemini API');
-    const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    const data = await groqResponse.json();
+    console.log('Sucesso na resposta da Groq API');
+    const resultText = data.choices?.[0]?.message?.content || "";
 
     return response.status(200).json({ text: resultText });
   } catch (error) {
