@@ -93,7 +93,7 @@ styleButtons.forEach(btn => {
       loadHistory();
 
     } catch (err) {
-      showToast("Erro ao gerar a tradução. Tente novamente.", "error");
+      showToast(`Erro: ${err.message}`, "error");
       removeSkeletonCard(style);
     } finally {
       setLoading(false);

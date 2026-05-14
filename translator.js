@@ -178,14 +178,8 @@ Lembre-se: gere EXATAMENTE 2 versões separadas por [OPCAO_1] e [OPCAO_2].`;
     return { opcao1, opcao2, styleName: nome, emoji };
   } catch (err) {
     console.error("Erro ao chamar Gemini:", err);
-    // Fallback em caso de erro de rede
-    const fb = FALLBACKS[style];
-    return {
-      opcao1: fb[0].replace("[OPCAO_1]", "").trim(),
-      opcao2: fb[1].replace("[OPCAO_2]", "").trim(),
-      styleName: nome,
-      emoji
-    };
+    // Agora não usamos mais o fallback, relançamos o erro para o app.js tratar
+    throw err;
   }
 }
 
